@@ -25,8 +25,8 @@ const App = () => {
 	const Contributors = () => {
 		return (
 			<div className="contributors">
-				Contributors: {male()}@ModestYjx,{female()}@Weiyan.Shi,{male()}@nzcer,{male()}@JackCheng@,@
-				{male()}yyzdut
+				Contributors: {male()}@ModestYjx,{female()}@Weiyan.Shi,{male()}@nzcer,{male()}@JackCheng,@
+				{male()}Yuyizhe,{male()}@V
 			</div>
 		)
 	}

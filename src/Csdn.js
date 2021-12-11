@@ -7,7 +7,7 @@ import "./App.css";
 const { Option } = Select;
 
 const Csdn = () => {
-	const [school, setSchool] = useState('pku.edu.cn');
+	const [school, setSchool] = useState('@stu.pku.edu.cn');
 	const [email, setEmail] = useState('');
 	const [address, setAddress] = useState('');
 
@@ -31,11 +31,12 @@ const Csdn = () => {
 	}
 
 	const selectAfter = (
-		<Select defaultValue="pku.edu.cn" className="select-after" onChange={(e) => { setSchool(e) }}>
+		<Select defaultValue={school} className="select-after" onChange={(e) => { setSchool(e) }}>
 			<Option value="@stu.pku.edu.cn">@stu.pku.edu.cn</Option>
 			<Option value="@pku.edu.cn">@pku.edu.cn</Option>
 			<Option value="@thu.edu.cn">@thu.edu.cn</Option>
 			<Option value="@ruc.edu.cn">@ruc.edu.cn</Option>
+			<Option value="@ecnu.edu.cn">@stu.ecnu.edu.cn</Option>
 		</Select>
 	);
 
