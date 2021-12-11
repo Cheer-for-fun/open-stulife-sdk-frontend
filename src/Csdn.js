@@ -11,11 +11,8 @@ const Csdn = () => {
 	const [email, setEmail] = useState('');
 	const [address, setAddress] = useState('');
 
-
-
-
 	const submit = () => {
-		const url = '/submit';
+		const url = `/submit`;
 		httpPost(url, { address: address, email: email }).then((response) => {
 			return response.json();
 		}).then((data) => {

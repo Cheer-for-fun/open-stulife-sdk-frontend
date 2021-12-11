@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // 封装get请求
 export const httpGet = (url) => {
     var result = fetch(url)
@@ -5,7 +7,7 @@ export const httpGet = (url) => {
 }
 // 封装post请求
 export const httpPost = (url, data) => {
-    var result = fetch(url, {
+    var result = fetch(`http://${axios.defaults.baseURL}${url}`, {
         method: 'post',
         headers: {
             'Accept': 'application/json,text/plain,*/*',/* 格式限制：json、文本、其他格式 */
