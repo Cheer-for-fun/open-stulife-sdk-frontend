@@ -12,7 +12,7 @@ const Csdn = () => {
 	const [address, setAddress] = useState('');
 
 	const submit = () => {
-		const url = `/submit`;
+		const url = '/open-stulife-sdk/api/submit';
 		httpPost(url, { address: address, email: email }).then((response) => {
 			return response.json();
 		}).then((data) => {
