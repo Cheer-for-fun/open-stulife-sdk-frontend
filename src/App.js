@@ -1,12 +1,20 @@
 import { PageHeader, Menu } from "antd";
 import { useState } from "react";
 import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
+import axios from 'axios';
 import Csdn from './Csdn';
 import Codimd from './Codimd';
 import "./App.css";
 
 
 const App = () => {
+
+	const REACT_APP_PROXY_URL = process.env.REACT_APP_PROXY_URL;
+	if (REACT_APP_PROXY_URL === "pro") {
+		axios.defaults.baseURL = "39.103.166.167"
+	} else {
+		axios.defaults.baseURL = "127.0.0.1";
+	}
 
 	const [csdnVisible, setCsdnVisible] = useState(true);
 	const [current, setCurrent] = useState("1");

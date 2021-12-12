@@ -8,6 +8,7 @@
 		"@testing-library/react": "^11.2.7",
 		"@testing-library/user-event": "^12.8.3",
 		"antd": "^4.17.2",
+		"axios": "^0.24.0",
 		"echarts": "^5.2.2",
 		"echarts-for-react": "^3.0.2",
 		"react": "^17.0.2",
@@ -22,7 +23,10 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"build:dev": "set REACT_APP_PROXY_URL=dev&& react-scripts build",
+		"build:pro": "set REACT_APP_PROXY_URL=pro&& react-scripts build",
+		"build:qa": "set REACT_APP_PROXY_URL=qa&& react-scripts build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -41,5 +45,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"dotenv-cli": "^4.1.1"
 	}
 }
