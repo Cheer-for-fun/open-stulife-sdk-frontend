@@ -13,18 +13,22 @@ const Csdn = () => {
 
 	const submit = () => {
 		const url = '/open-stulife-sdk/api/submit';
-		httpPost(url, { address: address, email: email }).then((response) => {
+		httpPost(url, { address: address, email: email + school }).then((response) => {
 			return response.json();
 		}).then((data) => {
 			const { msg } = data;
-			message.info(msg);
+			message.success(msg);
 		}).catch(function (err) {
 			alert(err);
 		});
 	}
 
 	const onFinish = (values) => {
-		submit();
+		if (email.indexOf('.edu.cn') !== -1 || email.indexOf('.com') !== -1) {
+			message.error('请不要输入邮箱后缀，邮箱后缀在右侧下拉框内选择即可！');
+		} else {
+			submit();
+		}
 	}
 
 	const selectAfter = (
@@ -48,10 +52,12 @@ const Csdn = () => {
 				<Form.Item
 					label="邮箱地址"
 					name="email"
-					rules={[{ required: true, message: '请输入您的邮箱！（仅限北大、清华、人大邮箱后缀）' }]}
+					rules={[
+						{ required: true, message: '请输入您的学校邮箱前缀（学校邮箱后缀请在下拉框选择，仅限北大、清华、人大、华东师范...）' }
+					]}
 				>
-					<Input addonAfter={selectAfter} placeholder='请输入您的邮箱（仅限北大、清华、人大邮箱后缀）' onChange={(e) => {
-						setEmail(e.target.value + school);
+					<Input addonAfter={selectAfter} placeholder='请输入您的学校邮箱前缀（学校邮箱后缀请在下拉框选择，仅限北大、清华、人大、华东师范...）' onChange={(e) => {
+						setEmail(e.target.value);
 					}} />
 				</Form.Item>
 				<Form.Item
