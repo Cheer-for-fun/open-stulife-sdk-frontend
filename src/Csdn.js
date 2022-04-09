@@ -7,36 +7,39 @@ import "./App.css";
 const { Option } = Select;
 
 const Csdn = () => {
-	const [school, setSchool] = useState('@pku.edu.cn');
+
+	const [school, setSchool] = useState('@stu.pku.edu.cn');
 	const [email, setEmail] = useState('');
 	const [address, setAddress] = useState('');
 
-
-
-
 	const submit = () => {
-		const url = '/submit';
-		httpPost(url, { address: address, email: email }).then((response) => {
+		const url = '/open-stulife-sdk/api/submit';
+		httpPost(url, { address: address, email: email + school }).then((response) => {
 			return response.json();
 		}).then((data) => {
 			const { msg } = data;
-			message.info(msg);
+			message.success(msg);
 		}).catch(function (err) {
 			alert(err);
 		});
 	}
 
 	const onFinish = (values) => {
-		submit();
+		if (email.indexOf('.edu.cn') !== -1 || email.indexOf('.com') !== -1) {
+			message.error('请不要输入邮箱后缀，邮箱后缀在右侧下拉框内选择即可！');
+		} else {
+			submit();
+		}
 	}
 
 	const selectAfter = (
-		<Select defaultValue="@pku.edu.cn" className="select-after" onChange={(e) => { setSchool(e) }}>
+		<Select defaultValue={school} className="select-after" onChange={(e) => { setSchool(e) }}>
 			<Option value="@stu.pku.edu.cn">@stu.pku.edu.cn</Option>
 			<Option value="@pku.edu.cn">@pku.edu.cn</Option>
 			<Option value="@thu.edu.cn">@thu.edu.cn</Option>
 			<Option value="@ruc.edu.cn">@ruc.edu.cn</Option>
 			<Option value="@scut.edu.cn">@ruc.edu.cn</Option>
+			<Option value="@ecnu.edu.cn">@stu.ecnu.edu.cn</Option>
 		</Select>
 	);
 
@@ -51,10 +54,12 @@ const Csdn = () => {
 				<Form.Item
 					label="邮箱地址"
 					name="email"
+
 					rules={[{ required: true, message: '请输入您的邮箱！' }]}
 				>
 					<Input addonAfter={selectAfter} placeholder='请输入您的邮箱' onChange={(e) => {
 						setEmail(e.target.value + school);
+
 					}} />
 				</Form.Item>
 				<Form.Item
