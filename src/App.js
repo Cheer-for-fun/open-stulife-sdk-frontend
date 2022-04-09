@@ -19,25 +19,26 @@ const App = () => {
 	const [csdnVisible, setCsdnVisible] = useState(true);
 	const [current, setCurrent] = useState("1");
 
-	const male = () => {
-		return (
-			<img src="https://img.icons8.com/color/48/000000/male.png" alt='' className="icon-img" />)
-	}
+	// const male = () => {
+	// 	return (
+	// 		<img src="https://img.icons8.com/color/48/000000/male.png" alt='' className="icon-img" />)
+	// }
+	//
+	// const female = () => {
+	// 	return (
+	// 		<img src="https://img.icons8.com/color-glass/48/000000/female.png" alt='' className="icon-img" />
+	// 	)
+	// }
 
-	const female = () => {
-		return (
-			<img src="https://img.icons8.com/color-glass/48/000000/female.png" alt='' className="icon-img" />
-		)
-	}
 
-	const Contributors = () => {
-		return (
-			<div className="contributors">
-				Contributors: {male()}@ModestYjx,{female()}@Weiyan.Shi,{male()}@nzcer,{male()}@JackCheng,@
-				{male()}Yuyizhe,{male()}@V
-			</div>
-		)
-	}
+	// const Contributors = () => {
+	// 	return (
+	// 		<div className="contributors">
+	// 			Contributors: {male()}@ModestYjx,{female()}@Weiyan.Shi,{male()}@nzcer,{male()}@JackCheng@,@
+	// 			{male()}yyzdut
+	// 		</div>
+	// 	)
+	// }
 
 	const LeftMenu = () => {
 		return (
@@ -50,7 +51,7 @@ const App = () => {
 						setCurrent(e.key);
 					}}
 				>
-					csdn free download(csdn免费下载)
+					download
 				</Menu.Item>
 				<Menu.Item
 					key="2"
@@ -72,7 +73,7 @@ const App = () => {
 			<PageHeader
 				className="site-page-header"
 				title="Welcome!"
-				subTitle={<Contributors />}
+				// subTitle={<Contributors />}
 			/>
 			<div className="main-wrapper">
 				<LeftMenu />
