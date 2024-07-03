@@ -1,23 +1,23 @@
-# open-stulife-sdk前端工程
+# open-stulife-sdk Frontend Project
 
-## 前端项目启动
-* 下载node&npm(此步骤可命令行可安装包)
-* 安装相关依赖
+## Start the Frontend Project
+* Download and install Node.js & npm (can be done via command line or package installer)
+* Install dependencies
 ```shell
 $ npm i
 ```
-* 启动项目
+* Start the project
 ```shell
 $ npm start
 ```
-## 前端项目打包
-*本地环境
+## Build the Frontend Project
+* Local environment
 ```shell
 $ npm run build:dev
 ```
-*生产环境
+* Production environment
 ```shell
 $ npm run build:pro
 ```
 
-## **大功告成！撒花**
+## **All Done! Celebrate! 🎉**
