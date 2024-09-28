@@ -7,6 +7,7 @@ import "./App.css";
 const { Option } = Select;
 
 const Csdn = () => {
+
 	const [school, setSchool] = useState('@stu.pku.edu.cn');
 	const [email, setEmail] = useState('');
 	const [address, setAddress] = useState('');
@@ -37,6 +38,7 @@ const Csdn = () => {
 			<Option value="@pku.edu.cn">@pku.edu.cn</Option>
 			<Option value="@thu.edu.cn">@thu.edu.cn</Option>
 			<Option value="@ruc.edu.cn">@ruc.edu.cn</Option>
+			<Option value="@scut.edu.cn">@ruc.edu.cn</Option>
 			<Option value="@ecnu.edu.cn">@stu.ecnu.edu.cn</Option>
 		</Select>
 	);
@@ -52,20 +54,20 @@ const Csdn = () => {
 				<Form.Item
 					label="邮箱地址"
 					name="email"
-					rules={[
-						{ required: true, message: '请输入您的学校邮箱前缀（学校邮箱后缀请在下拉框选择，仅限北大、清华、人大、华东师范...）' }
-					]}
+
+					rules={[{ required: true, message: '请输入您的邮箱！' }]}
 				>
-					<Input addonAfter={selectAfter} placeholder='请输入您的学校邮箱前缀（学校邮箱后缀请在下拉框选择，仅限北大、清华、人大、华东师范...）' onChange={(e) => {
-						setEmail(e.target.value);
+					<Input addonAfter={selectAfter} placeholder='请输入您的邮箱' onChange={(e) => {
+						setEmail(e.target.value + school);
+
 					}} />
 				</Form.Item>
 				<Form.Item
 					label="csdn地址"
 					name="csdn"
-					rules={[{ required: true, message: '请输入您要下载的csdn文件地址！' }]}
+					rules={[{ required: true, message: '文件url！' }]}
 				>
-					<Input placeholder='请输入您要下载的csdn文件地址' onChange={(e) => {
+					<Input placeholder='请输入文件详情页url' onChange={(e) => {
 						setAddress(e.target.value);
 					}} />
 				</Form.Item>
